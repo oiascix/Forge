@@ -1,77 +1,66 @@
-# FORGE — Habit Tracker
+# FORGE — Трекер привычек
 
-Dark-themed habit tracker with streaks, history calendar, and daily reminders.
+Минималистичный трекер привычек в тёмной теме с поддержкой серий (streaks), календаря истории и умных напоминаний.
 
-## Features
+## ⚡ Возможности
 
-| Feature | Details |
-|---------|---------|
-| **Daily toggle** | Check off habits each day; state resets at midnight |
-| **Streak tracking** | Current streak + best streak, computed from full history |
-| **History calendar** | 15-week GitHub-style heatmap per habit |
-| **Daily reminders** | AlarmManager-based, per-task time picker |
-| **Day progress bar** | X / N done today on home screen |
-| **Midnight reset** | WorkManager job fires at 00:01 to update streaks |
-| **Boot persistence** | Alarms rescheduled after device reboot |
+| Функция | Описание |
+|---------|----------|
+| **Ежедневная отметка** | Фиксация выполнения привычек; автоматический сброс статуса в полночь |
+| **Отслеживание серий** | Текущая и максимальная серия, рассчитывается на основе полной истории выполнений |
+| **Календарь истории** | Тепловая карта за 15 недель в стиле GitHub для каждой привычки |
+| **Умные напоминания** | На основе `AlarmManager` с индивидуальным выбором времени для каждой задачи |
+| **Прогресс дня** | Визуальный индикатор `X / N` выполненных привычек на главном экране |
+| **Полуночный сброс** | `WorkManager` запускает задачу в 00:01 для пересчёта серий и обновления состояния |
+| **Устойчивость к перезагрузке** | Напоминания автоматически восстанавливаются после перезагрузки устройства |
 
-## Architecture
+## 🏗 Архитектура проекта
+📦 app/src/main/java/com/forge/app
+├── 📂 models/
+│   ├── Task.java              — Модель привычки + кеш серий + настройки напоминаний
+│   ├── TaskCompletion.java    — История: одна запись на (taskId, дата)
+│   ├── TaskWithStatus.java    — POJO для объединения задачи и флага выполнения сегодня
+│   ├── ForgeProject.java      — Модель проекта “Core Heat”
+│   └── UserProfile.java       — Имя пользователя + дата последнего входа
+├── 📂 database/
+│   ├── TaskDao                — CRUD операции + запросы статистики за день
+│   ├── TaskCompletionDao      — Управление историей выполнений
+│   └── AppDatabase            — Room DB с сид-данными и тестовой историей
+├── 📂 activities/
+│   ├── MainViewModel          — Объединение потоков задач и completions через MediatorLiveData
+│   ├── MainActivity           — Хост навигации + запрос прав на уведомления
+│   ├── TaskDetailActivity     — Статистика серий + тепловая карта + переключатель напоминаний
+│   ├── EditTaskActivity       — Создание/редактирование привычки + выбор времени
+│   └── EditProjectActivity    — Управление проектами
+├── 📂 fragments/
+│   ├── HomeFragment           — Приветствие, прогресс дня, Core Heat, сетка привычек
+│   ├── ForgeFragment          — Полный список задач и проектов
+│   └── ProfileFragment        — Статистика пользователя (сегодня/всего)
+├──  adapters/
+│   ├── TaskGridAdapter        — Сетка 2×2 с бейджем серии и быстрым тогглом
+│   ├── TaskListAdapter        — Список с чипом серии, редактированием и переходом к деталям
+│   └── ProjectAdapter         — Карточки проектов
+├── 📂 utils/
+│   ├── DateUtils              — Утилиты дат + алгоритм расчёта серий (текущая/лучшая)
+│   ├── HabitCalendarView      — Кастомный View: 15-недельная тепловая карта
+│   ├── NotificationHelper     — Планирование через AlarmManager + создание канала
+│   ├── NotificationReceiver   — BroadcastReceiver для отправки уведомлений
+│   └── BootReceiver           — Восстановление будильников после перезагрузки
+└── 📂 workers/
+└── MidnightResetWorker    — WorkManager: обновление lastSeenDate и пересчёт серий в 00:01
 
-```
-models/
-  Task.java              — habit definition + streak cache + reminder config
-  TaskCompletion.java    — one row per (taskId, date), drives all history
-  TaskWithStatus.java    — joined POJO: task + completedToday flag
-  ForgeProject.java      — Core Heat project
-  UserProfile.java       — name + lastSeenDate
 
-database/
-  TaskDao               — CRUD + today's count queries
-  TaskCompletionDao     — insert/delete/query completion history
-  AppDatabase           — Room DB with seed data + fake history
+## 🧠 Как работают серии (Streaks)
 
-activities/
-  MainViewModel         — MediatorLiveData merging tasks + today's completions
-  MainActivity          — bottom nav host + notification permission
-  TaskDetailActivity    — streak stats + heatmap + reminder toggle
-  EditTaskActivity      — create/edit task with reminder time picker
-  EditProjectActivity   — create/edit Core Heat project
+- `TaskCompletion` хранит пары `(taskId, "yyyy-MM-dd")` — одна строка на каждое выполнение
+- `DateUtils.computeStreak()` идёт назад от текущей даты, считая последовательные дни с записями
+- Серия не прерывается, если сегодня ещё не отмечено — достаточно вчерашнего выполнения
+- `MidnightResetWorker` каждую ночь пересчитывает и кеширует `currentStreak` / `bestStreak` напрямую в объекте `Task` для мгновенного отображения в UI
 
-fragments/
-  HomeFragment          — greeting, day progress, Core Heat, featured card, grid
-  ForgeFragment         — all tasks + projects management
-  ProfileFragment       — name, today/total stats
 
-adapters/
-  TaskGridAdapter       — 2×2 grid with streak badge + toggle
-  TaskListAdapter       — list with streak chip + edit/delete + detail tap
-  ProjectAdapter        — project cards
+## 🔐 Запрашиваемые разрешения
 
-utils/
-  DateUtils             — today(), streak computation (current + best)
-  HabitCalendarView     — custom View: 15-week contribution heatmap
-  NotificationHelper    — AlarmManager scheduling + channel creation
-  NotificationReceiver  — BroadcastReceiver fires the notification
-  BootReceiver          — reschedules alarms after reboot
+Приложение запрашивает права во время выполнения:
+- `POST_NOTIFICATIONS` (Android 13+) — для отправки напоминаний о привычках
+- `SCHEDULE_EXACT_ALARM` — для точного планирования ежедневных уведомлений
 
-workers/
-  MidnightResetWorker   — WorkManager: updates lastSeenDate + recalculates streaks
-```
-
-## How streaks work
-
-- `TaskCompletion` stores `(taskId, "yyyy-MM-dd")` — one row per completion
-- `DateUtils.computeStreak()` walks backwards from today; counts consecutive days
-- Today doesn't have to be completed yet — streak continues from yesterday
-- `MidnightResetWorker` recalculates and caches `currentStreak` / `bestStreak` on each Task row nightly
-
-## Setup
-
-1. Unzip → `File → Open` in Android Studio → select `ForgeApp/`
-2. Let Gradle sync (downloads dependencies automatically)
-3. Run on emulator or device — **API 26+** required
-
-## Permissions requested at runtime
-
-- `POST_NOTIFICATIONS` (Android 13+) — for habit reminders
-- `SCHEDULE_EXACT_ALARM` — for precise daily alarm scheduling
-# Forge
