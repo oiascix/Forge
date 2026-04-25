@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingHorizontal="20dp"
+        android:paddingTop="48dp" android:paddingBottom="32dp">
+
+        <!-- Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+            <ImageButton android:id="@+id/btn_back"
+                android:layout_width="40dp" android:layout_height="40dp"
+                android:src="@drawable/ic_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@color/text_primary" android:contentDescription="Back"/>
+            <View android:layout_width="4dp" android:layout_height="24dp"
+                android:background="@color/orange_primary"
+                android:layout_marginStart="10dp" android:layout_marginEnd="10dp"/>
+            <TextView android:id="@+id/tv_header"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="NEW TASK" android:textColor="@color/text_primary"
+                android:textSize="20sp" android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+
+        <!-- Title -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="TASK TITLE" android:textColor="@color/text_hint"
+            android:textSize="11sp" android:letterSpacing="0.12" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/bg_card" app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_title"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/text_primary" android:hint="e.g. PROGRAMMING"
+                android:inputType="textCapCharacters" android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Subtitle -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SUBTITLE" android:textColor="@color/text_hint"
+            android:textSize="11sp" android:letterSpacing="0.12" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:boxBackgroundColor="@color/bg_card" app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_subtitle"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/text_primary" android:hint="e.g. 50 CARDS"
+                android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Icon picker -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="ICON" android:textColor="@color/text_hint"
+            android:textSize="11sp" android:letterSpacing="0.12" android:layout_marginBottom="10dp"/>
+        <RadioGroup android:id="@+id/radio_group_icon"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="24dp">
+            <RadioButton android:id="@+id/radio_icon_brain"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="🧠" android:textSize="18sp" android:gravity="center"
+                android:button="@null" android:background="@drawable/radio_bg"
+                android:padding="8dp" android:checked="true"/>
+            <RadioButton android:id="@+id/radio_icon_book"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="📖" android:textSize="18sp" android:gravity="center"
+                android:button="@null" android:background="@drawable/radio_bg"
+                android:padding="8dp" android:layout_marginStart="6dp"/>
+            <RadioButton android:id="@+id/radio_icon_gym"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="🏋️" android:textSize="18sp" android:gravity="center"
+                android:button="@null" android:background="@drawable/radio_bg"
+                android:padding="8dp" android:layout_marginStart="6dp"/>
+            <RadioButton android:id="@+id/radio_icon_drop"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="💧" android:textSize="18sp" android:gravity="center"
+                android:button="@null" android:background="@drawable/radio_bg"
+                android:padding="8dp" android:layout_marginStart="6dp"/>
+            <RadioButton android:id="@+id/radio_icon_code"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="&lt;/&gt;" android:textSize="14sp" android:gravity="center"
+                android:textColor="@color/text_secondary"
+                android:button="@null" android:background="@drawable/radio_bg"
+                android:padding="8dp" android:layout_marginStart="6dp"/>
+        </RadioGroup>
+
+        <!-- Reminder -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="REMINDER" android:textColor="@color/text_hint"
+            android:textSize="11sp" android:letterSpacing="0.12" android:layout_marginBottom="10dp"/>
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="12dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Enable daily reminder"
+                        android:textColor="@color/text_primary" android:textSize="14sp"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_reminder"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        app:trackTint="@color/switch_track_tint"
+                        app:thumbTint="@color/switch_thumb_tint"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/row_reminder_time"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginTop="12dp" android:visibility="gone">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Time"
+                        android:textColor="@color/text_secondary" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tv_reminder_time"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="09:00" android:textColor="@color/orange_primary"
+                        android:textSize="16sp" android:fontFamily="sans-serif-medium"
+                        android:layout_marginEnd="12dp"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_pick_time"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Pick" android:textColor="@color/orange_primary"
+                        android:textSize="12sp"
+                        app:strokeColor="@color/orange_primary" app:cornerRadius="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Featured switch -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="FEATURED (big card)"
+                android:textColor="@color/text_secondary" android:textSize="13sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switch_featured"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                app:trackTint="@color/switch_track_tint"
+                app:thumbTint="@color/switch_thumb_tint"/>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="SAVE TASK" android:textColor="@color/text_primary"
+            android:letterSpacing="0.1" android:fontFamily="sans-serif-medium"
+            app:backgroundTint="@color/orange_primary" app:cornerRadius="14dp"/>
+    </LinearLayout>
+</ScrollView>

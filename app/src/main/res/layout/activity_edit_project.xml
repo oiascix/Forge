@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingHorizontal="20dp"
+        android:paddingTop="48dp" android:paddingBottom="32dp">
+
+        <!-- Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+            <ImageButton android:id="@+id/btn_back"
+                android:layout_width="40dp" android:layout_height="40dp"
+                android:src="@drawable/ic_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@color/text_primary" android:contentDescription="Back"/>
+            <View android:layout_width="4dp" android:layout_height="24dp"
+                android:background="@color/orange_primary"
+                android:layout_marginStart="10dp" android:layout_marginEnd="10dp"/>
+            <TextView android:id="@+id/tv_header"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="NEW PROJECT" android:textColor="@color/text_primary"
+                android:textSize="20sp" android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+
+        <!-- Name -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="PROJECT NAME" android:textColor="@color/text_hint"
+            android:textSize="11sp" android:letterSpacing="0.12" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/bg_card" app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_name"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/text_primary" android:hint="e.g. Titanium Blade"
+                android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Current heat -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="CURRENT HEAT (°)" android:textColor="@color/text_hint"
+            android:textSize="11sp" android:letterSpacing="0.12" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/bg_card" app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_heat"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/text_primary" android:hint="1500"
+                android:inputType="number" android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Max heat -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="MAX HEAT (°)" android:textColor="@color/text_hint"
+            android:textSize="11sp" android:letterSpacing="0.12" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/bg_card" app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_max_heat"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/text_primary" android:hint="2000"
+                android:inputType="number" android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Time left -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="TIME LEFT" android:textColor="@color/text_hint"
+            android:textSize="11sp" android:letterSpacing="0.12" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            app:boxBackgroundColor="@color/bg_card" app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp"
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_time_left"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/text_primary" android:hint="two days left"
+                android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="SAVE PROJECT" android:textColor="@color/text_primary"
+            android:letterSpacing="0.1" android:fontFamily="sans-serif-medium"
+            app:backgroundTint="@color/orange_primary" app:cornerRadius="14dp"/>
+    </LinearLayout>
+</ScrollView>

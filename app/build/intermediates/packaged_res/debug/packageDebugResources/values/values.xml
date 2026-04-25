@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_card">#1E2023</color>
+    <color name="bg_card2">#25282C</color>
+    <color name="bg_dark">#111213</color>
+    <color name="error_red">#CF4242</color>
+    <color name="orange_primary">#E8420A</color>
+    <color name="orange_secondary">#FF6B35</color>
+    <color name="streak_gold">#FFB300</color>
+    <color name="text_hint">#606469</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B4B8</color>
+    <color name="toggle_unchecked">#2E3236</color>
+    <string name="app_name">Forge</string>
+    <string name="nav_forge">Forge</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+    <style name="Theme.ForgeApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/orange_primary</item>
+        <item name="colorPrimaryVariant">@color/orange_secondary</item>
+        <item name="colorOnPrimary">@color/text_primary</item>
+        <item name="colorSecondary">@color/orange_secondary</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="android:colorBackground">@color/bg_dark</item>
+        <item name="colorSurface">@color/bg_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_card</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="colorControlActivated">@color/orange_primary</item>
+        <item name="colorControlNormal">@color/text_hint</item>
+        <item name="editTextColor">@color/text_primary</item>
+        <item name="android:editTextColor">@color/text_primary</item>
+    </style>
+</resources>

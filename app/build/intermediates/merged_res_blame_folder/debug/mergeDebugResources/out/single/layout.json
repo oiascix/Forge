@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/item_task_featured.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/item_task_featured.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/item_project.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/item_project.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/fragment_profile.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/item_task_list.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/item_task_list.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/item_task_grid.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/item_task_grid.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/fragment_home.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/activity_task_detail.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/activity_task_detail.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/activity_main.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/activity_edit_task.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/activity_edit_task.xml"
+    },
+    {
+        "merged": "com.forge.app-mergeDebugResources-38:/layout/item_task_featured.xml",
+        "source": "com.forge.app-main-41:/layout/item_task_featured.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/fragment_forge.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/fragment_forge.xml"
+    },
+    {
+        "merged": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-mergeDebugResources-38:/layout/activity_edit_project.xml",
+        "source": "/Users/artemy/.gradle/daemon/8.7/com.forge.app-main-41:/layout/activity_edit_project.xml"
+    }
+]

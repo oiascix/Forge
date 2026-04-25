@@ -1,0 +1,2 @@
+-keep class com.forge.app.models.** { *; }
+-keep class com.forge.app.database.** { *; }

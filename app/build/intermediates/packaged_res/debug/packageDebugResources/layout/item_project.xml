@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="0dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+            <TextView android:id="@+id/tv_name"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Titanium Blade" android:textColor="@color/text_primary"
+                android:textSize="15sp" android:fontFamily="sans-serif-medium"/>
+            <TextView android:id="@+id/tv_heat"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="1500° / 2000°" android:textColor="@color/orange_primary"
+                android:textSize="13sp" android:layout_marginEnd="10dp"/>
+            <ImageButton android:id="@+id/btn_edit"
+                android:layout_width="30dp" android:layout_height="30dp"
+                android:src="@drawable/ic_edit"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@color/text_hint" android:contentDescription="Edit"/>
+            <ImageButton android:id="@+id/btn_delete"
+                android:layout_width="30dp" android:layout_height="30dp"
+                android:src="@drawable/ic_delete"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@color/error_red" android:contentDescription="Delete"/>
+        </LinearLayout>
+        <ProgressBar android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="6dp"
+            android:max="100" android:progressDrawable="@drawable/progress_heat"
+            android:layout_marginBottom="6dp"/>
+        <TextView android:id="@+id/tv_time_left"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="two days left" android:textColor="@color/text_hint" android:textSize="12sp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

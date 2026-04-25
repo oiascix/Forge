@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:paddingBottom="80dp" android:clipToPadding="false">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingHorizontal="20dp"
+            android:paddingTop="48dp" android:paddingBottom="16dp">
+
+            <!-- Header -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="28dp">
+                <View android:layout_width="4dp" android:layout_height="28dp"
+                    android:background="@color/orange_primary" android:layout_marginEnd="10dp"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="THE FORGE"
+                    android:textColor="@color/text_primary" android:textSize="22sp"
+                    android:fontFamily="sans-serif-medium"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_add_project"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add"
+                    app:backgroundTint="@color/bg_card" app:tint="@color/orange_primary"
+                    app:fabSize="mini" android:contentDescription="Add project"/>
+            </LinearLayout>
+
+            <!-- Projects -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="PROJECTS" android:textColor="@color/text_hint"
+                android:textSize="11sp" android:letterSpacing="0.15" android:layout_marginBottom="10dp"/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_projects"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" android:layout_marginBottom="28dp"/>
+
+            <!-- Tasks -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="ALL TASKS"
+                    android:textColor="@color/text_hint" android:textSize="11sp"
+                    android:letterSpacing="0.15"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_add_task"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add"
+                    app:backgroundTint="@color/orange_primary" app:tint="@color/text_primary"
+                    app:fabSize="mini" android:contentDescription="Add task"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_all_tasks"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
